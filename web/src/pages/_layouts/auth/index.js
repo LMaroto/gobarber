@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { Wrapper } from './styles';
 
 export default function AuthLayout({ children }) {
@@ -10,7 +11,6 @@ export default function AuthLayout({ children }) {
   );
 }
 
-AuthLayout.proptypes = {
+AuthLayout.propTypes = {
   children: PropTypes.element.isRequired,
-
 };
