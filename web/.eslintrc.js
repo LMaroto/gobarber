@@ -25,7 +25,6 @@ module.exports = {
   plugins: [
     'react',
     'prettier',
-    'react-hooks'
   ],
   rules: {
     'prettier/prettier': 'error',
@@ -33,11 +32,16 @@ module.exports = {
       'warn',
       {extensions: ['.jsx','.js']}
     ],
-    'no-console': ['error', { allow: 'tron'}],
+    'no-console': ['error', { allow: ['tron']}],
     'import/prefer-default-export': 'off',
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps':'warn',
-
-
+    'react/jsx-props-no-spreading': ['off']
+    
   },
+  settings: {
+    'import/resolver': {
+      "babel-plugin-root-import": {
+        rootPathSuffix: 'src',
+      }
+    }
+  }
 };
