@@ -1,11 +1,16 @@
 import React from 'react';
-import './App.css';
+import {Router} from 'react-router-dom'
+
+import './config/ReactotronConfig'
+
+import Routes from './routes';
+import history from './services/history';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">ReactJS template</header>
-    </div>
+  <Router history={history}>
+    <Routes />
+  </Router >
   );
 }
 
