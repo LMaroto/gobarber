@@ -1,9 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '~/assets/logo.svg';
 
 // import { Container } from './styles';
 
 export default function SignIn() {
   return (
-    <h1>Login</h1>
+    <>
+      <img src={logo} alt="GoBarber" />
+
+      <form>
+        <input name="email" type="email" placeholder="Seu e-mail" />
+        <input name="password" type="password" placeholder="Sua senha" />
+
+        <button type="submit">Acessar</button>
+        <Link to="/register">Criar conta gratuita</Link>
+      </form>
+    </>
   );
 }
