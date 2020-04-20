@@ -15,10 +15,13 @@ export default function SignIn() {
       formRef.current.setErrors({});
 
       const schema = Yup.object().shape({
-        email: Yup.string().email().required('O e-mail é obrigatório.'),
+        email: Yup.string()
+          .email('Insira um e-mail válido.')
+          .required('O e-mail é obrigatório.'),
         password: Yup.string().required('A senha é obrigatória.'),
       });
 
+      // Verificando schema
       await schema.validate(data, {
         abortEarly: false,
       });
@@ -26,9 +29,9 @@ export default function SignIn() {
       const validationErrors = {};
       // Verificando se é erro do Yup
       if (err instanceof Yup.ValidationError) {
-        // exibindo erros
-        console.tron.log(err);
+        // Exibindo erros
         err.inner.forEach((error) => {
+          console.tron.log(error);
           validationErrors[error.path] = error.message;
         });
 
