@@ -9,6 +9,6 @@ Aplicação multiplataforma para barbearias, com foco em agendamentos.
 | PostgreSQL| Redux |              |
 ||Redux Saga||
 
-## Autor
+### Autor
 
 [Lucas Maroto](github.com/LMaroto)
