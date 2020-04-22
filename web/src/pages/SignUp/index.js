@@ -1,14 +1,20 @@
 import React, { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+
 import { Link } from 'react-router-dom';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
+
 import Input from '~/components/Input';
 import logo from '~/assets/logo.svg';
 
+import { signUpRequest } from '~/store/modules/auth/actions';
+
 export default function SignUp() {
+  const dispatch = useDispatch();
   const formRef = useRef(null);
 
-  async function handleSubmit(data, { reset }) {
+  async function handleSubmit({ name, email, password }, { reset }) {
     // Definindo e verificando schema
     try {
       // Removendo erros anteriores
@@ -26,9 +32,15 @@ export default function SignUp() {
       });
 
       // Verificando schema
-      await schema.validate(data, {
-        abortEarly: false,
-      });
+      await schema.validate(
+        { name, email, password },
+        {
+          abortEarly: false,
+        }
+      );
+
+      // Disparando action de signUp
+      dispatch(signUpRequest(name, email, password));
     } catch (err) {
       const validationErrors = {};
       // Verificando se o erro vem do Yup
