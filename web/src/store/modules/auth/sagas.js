@@ -63,11 +63,20 @@ export function* signUp({ payload }) {
 
     history.push('/');
   } catch (err) {
-    Toast.fire({
-      icon: 'error',
-      title: 'Falha no cadastro. Por favor, verifique seus dados.',
-    });
+    // Verificando o erro retornado pela API e definindo Toast relacionado
+    const errMessage = err.response.data.error;
 
+    if (errMessage === 'User already exists.') {
+      Toast.fire({
+        icon: 'error',
+        title: 'O e-mail já foi cadastrado.',
+      });
+    } else {
+      Toast.fire({
+        icon: 'error',
+        title: 'Falha no cadastro. Por favor, verifique seus dados.',
+      });
+    }
     yield put(signFailure());
   }
 }
