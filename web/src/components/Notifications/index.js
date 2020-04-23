@@ -46,12 +46,14 @@ export default function Notifications() {
     setVisible(!visible);
   }
 
-  async function handleMarkAsRead(id) {
+  async function handleUpdateRead(id) {
     await api.put(`notifications/${id}`);
 
     setNotifications(
       notifications.map((notification) =>
-        notification._id === id ? { ...notification, read: true } : notification
+        notification._id === id
+          ? { ...notification, read: !notification.read }
+          : notification
       )
     );
   }
@@ -68,12 +70,20 @@ export default function Notifications() {
             <Notification key={notification._id} unread={!notification.read}>
               <p>{notification.content}</p>
               <time>{notification.timeDistance}</time>
-              {!notification.read && (
+              {/* Botão altera conforme status da notificação */}
+              {!notification.read ? (
                 <button
                   type="button"
-                  onClick={() => handleMarkAsRead(notification._id)}
+                  onClick={() => handleUpdateRead(notification._id)}
                 >
                   Marcar como lida
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => handleUpdateRead(notification._id)}
+                >
+                  Marcar como não lida
                 </button>
               )}
             </Notification>
