@@ -33,6 +33,7 @@ module.exports = {
       {extensions: ['.jsx','.js']}
     ],
     'no-param-reassign': 'off',
+    'no-underscore-dangle': 'off',
     'no-console': ['error', { allow: ['tron']}],
     'import/prefer-default-export': 'off',
     'react/jsx-props-no-spreading': ['off'],
