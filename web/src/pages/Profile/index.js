@@ -6,19 +6,20 @@ import { updateProfileRequest } from '~/store/modules/user/actions';
 
 import { Container } from './styles';
 
+import AvatarInput from './AvatarInput';
 import Input from '~/components/Input';
 
 export default function Profile() {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.user.profile);
-
   function handleSubmit(data) {
     dispatch(updateProfileRequest(data));
   }
 
   return (
     <Container>
-      <Form onSubmit={handleSubmit}>
+      <Form initialData={profile} onSubmit={handleSubmit}>
+        <AvatarInput name="avatar" />
         <Input name="name" placeholder="Seu nome completo" />
         <Input name="email" type="email" placeholder="Seu email" />
         <hr />

@@ -21,7 +21,7 @@ export default function Header() {
           <Profile>
             <div>
               <strong>Danifer Bunker</strong>
-              <Link to="/profile">Meu perfil</Link>
+              <Link to="/profile">Editar perfil</Link>
             </div>
             <img
               src="https://api.adorable.io/avatars/50/abott@adorable.png"

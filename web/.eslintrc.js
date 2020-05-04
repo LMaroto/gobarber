@@ -32,6 +32,7 @@ module.exports = {
       'warn',
       {extensions: ['.jsx','.js']}
     ],
+    'camelcase': 'off',
     'no-param-reassign': 'off',
     'no-underscore-dangle': 'off',
     'prefer-object-spread': 'off',

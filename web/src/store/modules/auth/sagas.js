@@ -25,11 +25,11 @@ export function* signIn({ payload }) {
       throw new Error('notProvider');
     }
 
+    yield put(signInSuccess(token, user));
+
     // Passando token de autenticação
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
-
-    yield put(signInSuccess(token, user));
 
     history.push('/dashboard');
   } catch (err) {
