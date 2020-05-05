@@ -19,7 +19,7 @@ export default function Profile() {
   return (
     <Container>
       <Form initialData={profile} onSubmit={handleSubmit}>
-        <AvatarInput name="avatar" />
+        <AvatarInput name="avatar_id" />
         <Input name="name" placeholder="Seu nome completo" />
         <Input name="email" type="email" placeholder="Seu email" />
         <hr />
