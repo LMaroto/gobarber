@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   max-width: 600px;
   margin: 50px auto;
-
   display: flex;
   flex-direction: column;
 
@@ -11,7 +10,6 @@ export const Container = styled.div`
     display: flex;
     align-self: center;
     align-items: center;
-
     button {
       border: 0;
       background: none;
@@ -23,15 +21,18 @@ export const Container = styled.div`
     }
   }
 
-  ul {
+  main {
+    height: 70vh;
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 15px;
+    padding: 0 15px;
     margin-top: 30px;
   }
 `;
 
-export const Time = styled.li`
+export const Time = styled.section`
   padding: 20px;
   border-radius: 4px;
   background: #fff;

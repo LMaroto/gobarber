@@ -14,6 +14,8 @@ import {
 import pt from 'date-fns/locale/pt';
 import { utcToZonedTime } from 'date-fns-tz';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { Scrollbars } from 'react-custom-scrollbars';
+
 import api from '~/services/api';
 
 import { Container, Time } from './styles';
@@ -74,17 +76,28 @@ export default function Dashboard() {
           <MdChevronRight color="#fff" size={36} />
         </button>
       </header>
-
-      <ul>
-        {schedule.map((time) => (
-          <Time key={time.time} past={time.past} available={!time.appointment}>
-            <strong>{time.time}</strong>
-            <span>
-              {time.appointment ? time.appointment.user.name : 'Em aberto'}
-            </span>
-          </Time>
-        ))}
-      </ul>
+      <Scrollbars
+        autoHide
+        autoHideTimeout={1000}
+        autoHideDuration={200}
+        autoHeight
+        autoHeightMin={410}
+      >
+        <main>
+          {schedule.map((time) => (
+            <Time
+              key={time.time}
+              past={time.past}
+              available={!time.appointment}
+            >
+              <strong>{time.time}</strong>
+              <span>
+                {time.appointment ? time.appointment.user.name : 'Em aberto'}
+              </span>
+            </Time>
+          ))}
+        </main>
+      </Scrollbars>
     </Container>
   );
 }

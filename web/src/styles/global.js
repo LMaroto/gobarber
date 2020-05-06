@@ -17,10 +17,13 @@ export default createGlobalStyle`
   }
   
   html, body, #root {
-    height: 100%;
+   height: 100vh;
+   overflow: hidden;
   }
 
   body {
+    display: flex;
+    flex-direction: column;
     -webkit-font-smoothing: antialiased;
   }
 
