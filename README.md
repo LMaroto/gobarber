@@ -6,8 +6,8 @@ Aplicação multiplataforma para barbearias, com foco em agendamentos.
 | BackEnd   | Web   | Mobile |
 | -------   | ----  | ------ |
 | Node.js   | React | React Native | 
-| PostgreSQL| Redux |              |
-||Redux Saga||
+| Express | Redux |              |
+| PostgreSQL |Redux Saga||
 
 ### Autor
 
